@@ -1,70 +1,145 @@
-# Project-Arrhythmia
+# ECG-Arrhythmia-Classifier
 
-## Introduction
+### Classifying Arrhythmias from ECG Signals ❤️📈
 
-This project focuses on predicting and classifying arrhythmias using various machine learning algorithms. The dataset used for this project is from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Arrhythmia), which consists of 452 examples across 16 different classes. Among these, 245 examples are labeled as "normal," while the remaining represent 12 different types of arrhythmias, including "coronary artery disease" and "right bundle branch block."
+Hey there! 👋 Welcome to my machine learning project, where I'm working on classifying arrhythmias using ECG signals. This project explores how artificial intelligence can assist in detecting and classifying cardiac conditions with precision.
 
-### Dataset Overview:
-- **Number of Examples**: 452
-- **Number of Features**: 279 (including age, sex, weight, height, and various medical parameters)
-- **Classes**: 16 total (12 arrhythmia types + 1 normal group)
+The entire pipeline is designed to be reproducible and scalable, so you can easily follow along and replicate the results on your machine or in the cloud.✨ I’ve used a dataset containing ECG signal data and built an end-to-end machine learning solution using tools like Streamlit, Flask, Docker etc
 
-**Objective**:  
-The goal of this project is to predict whether a person is suffering from arrhythmia, and if so, classify the type of arrhythmia into one of the 12 available groups.
+The goal? Help healthcare professionals detect and classify arrhythmias more accurately, improving patient care with the power of AI.
 
-## Algorithms Used
+## 📝 **Problem Description**
 
-To address the classification task, the following machine learning algorithms were employed:
+Arrhythmias are irregular heartbeats that can be harmless or life-threatening, depending on their type. Early detection is critical for effective patient management and better health outcomes.
 
-1. **K-Nearest Neighbors (KNN) Classifier**
-2. **Logistic Regression**
-3. **Decision Tree Classifier**
-4. **Linear Support Vector Classifier (SVC)**
-5. **Kernelized Support Vector Classifier (SVC)**
-6. **Random Forest Classifier**
-7. **Principal Component Analysis (PCA)** (for dimensionality reduction)
+### **Objective**
 
-## Project Workflow
+This project aims to develop a machine learning model that classifies arrhythmias based on ECG signal features.
 
-### Step 1: Data Exploration
-- Analyzed the 279 features to identify patterns and correlations that could help with prediction.
-- Addressed the challenge of the high number of features compared to the limited number of examples by employing PCA.
+### 📊 **Dataset**
 
-### Step 2: Data Preprocessing
-- Handled missing values, standardized data, and prepared it for machine learning models.
-- Applied **Principal Component Analysis (PCA)** to reduce the feature space and eliminate collinearity, improving both execution time and model performance.
+This project uses an ECG dataset from Kaggle, which is based on the **MIT-BIH Arrhythmia Dataset** from PhysioNet. The dataset contains essential features derived from two-lead ECG signals(lead II and lead V5), which are used to train the arrhythmia classification model.
 
-### Step 3: Model Training and Evaluation
-- Trained various machine learning algorithms on the dataset.
-- Evaluated model performance using accuracy, recall, and other relevant metrics.
+- **Number of records**: 460846
+- **Number of features**: 33
 
-### Step 4: Model Tuning with PCA
-- PCA helped reduce the complexity of the dataset, leading to improved model accuracy and reduced overfitting.
-- After applying PCA, models were retrained, and significant improvements were observed.
+For more detailed information about the dataset, including explanations of the columns, please refer to the [data folder](./data/README.md).
 
-## Results
+Ready to see how AI can help detect arrhythmias and save lives? Let’s get started! ✨
 
-![Results](https://raw.githubusercontent.com/shsarv/Project-Arrhythmia/master/Image/result.png)
+## 🎉 Live Streamlit App
 
-### Conclusion
+You can check out the live version of the Streamlit app at the following URL:
 
-Applying **Principal Component Analysis (PCA)** to the resampled data significantly improved the performance of the models. PCA works by creating non-collinear components that prioritize variables with high variance, thus reducing dimensionality and collinearity, which are key issues in large datasets. PCA not only enhanced the overall execution time but also improved the quality of predictions.
+[Streamlit App](https://heart-class.streamlit.app/)
 
-- The **best-performing model** in terms of recall score is the **Kernelized Support Vector Machine (SVM)** with PCA, achieving an accuracy of **80.21%**.
+### 📸 Screenshot of the App
 
-## Future Work
+![Streamlit App Screenshot](image/image.png)
 
-- Experiment with more advanced models like **XGBoost** or **Neural Networks**.
-- Perform hyperparameter tuning to further improve model accuracy and recall.
-- Explore feature selection techniques alongside PCA to refine the feature set.
+## 🔧 Tools & Techniques
 
+To bring this project to life, I used:
 
-## Acknowledgments
+- **Containerization:** Docker and Docker Compose
+- **Web Application Framework (Local Deployment):** Flask (for local web deployment)
+- **Web Application Framework (Cloud Deployment):** Streamlit (for cloud-based web deployment)
 
-- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Arrhythmia)
-- [Scikit-learn Documentation](https://scikit-learn.org/stable/)
-- [PCA Concepts](https://towardsdatascience.com/pca-using-python-scikit-learn-e653f8989e60)
+## ✨ Setup
+
+### **Local Setup**
+
+#### **Clone the Repository**:
+
+```bash
+git clone https://github.com/Tobai24/ECG-Arrhythmia-Classifier.git
+cd ECG-Arrhythmia-Classifier
+```
+
+#### **Set Up the Python Environment**:
+
+**Option 1: Using `pipenv`** (Recommended)
+
+- Install Pipenv using your system's package manager (preferred for Debian-based systems):
+
+  ```bash
+  sudo apt install pipenv
+  ```
+
+  Alternatively, you can install Pipenv via `pip`:
+
+  ```bash
+  pip install pipenv
+  ```
+
+- Install the dependencies with `pipenv`:
+
+  ```bash
+  pipenv install
+  ```
+
+- Activate the `pipenv` shell:
+  ```bash
+  pipenv shell
+  ```
+
+**Option 2: Using `requirements.txt`** (For users preferring `pip`)
+
+- Create and activate a virtual environment:
+
+  ```bash
+  python -m venv venv
+  source venv/bin/activate  # On Windows use: venv\Scripts\activate
+  ```
+
+- Install the dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ---
 
-This `README.md` offers clear documentation of the objectives, algorithms used, results, and the significance of PCA in your project. It also provides essential information on how to run the project and the prerequisites.
+### 📝 Notes:
+
+- If you use `pipenv`, you do not need to install the `requirements.txt` dependencies manually because `pipenv` reads the `Pipfile` and manages the environment for you.
+- For Debian-based systems, using `sudo apt install pipenv` ensures compatibility with the system Python environment and avoids issues with the "externally managed environment" restriction.
+
+## Exploratory Data Analysis and Modeling
+
+The exploratory data analysis and modeling are done in the [notebooks directory](notebooks/). The exploratory data analysis and model building are done in the `notebook.ipynb` notebook.
+
+The notebook directory also contains the model called `model.pkl`, where the model from the `notebook.ipynb` is stored.
+
+It also contains the training script (which contains the script for training the model with the best AUC) which you can run by running `python train.py` in the terminal
+
+```bash
+python train.py
+```
+
+## Get Going
+
+Ready to dive into your project? Here’s a quick guide to get you started.
+
+### 📁 **Deployment**
+
+### **Local Deployment**
+
+- **Tools Used**: Flask for building your web app and Docker for containerizing it.
+- **Where to Find It**: Head over to the [deployment/local_deployment](deployment/local_deployment) folder.
+
+The README in that folder covers everything you need to get your app running locally.
+
+It’s got the details for setting up Flask and Docker, so you can test things out on your own machine.
+
+### **Cloud Deployment**
+
+- **Tools Used**: Streamlit community cloud for hosting your app and Streamlit for the web interface.
+- **Where to Find It**: Navigate to the [deployment/web_deployment](deployment/web_deployment) folder.
+
+The README in that folder guides you through deploying your app using Streamlit. It’s perfect for getting your app live on the cloud.
+
+## 🎉 Special Mentions
+
+A huge thank you to [DataTalks.Club](https://datatalks.club) for offering their ML course for free! 🌟 The insights and skills I gained from their course were crucial in developing this project.
+
+If you want to enhance your expertise in machine learning, I highly recommend checking out their [course](https://github.com/DataTalksClub/machine-learning-zoomcamp). It’s an invaluable resource for diving into machine learning! 📚✨
