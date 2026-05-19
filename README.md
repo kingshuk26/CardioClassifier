@@ -29,9 +29,7 @@ Ready to see how AI can help detect arrhythmias and save lives? Let’s get star
 
 ## 🎉 Live Streamlit App
 
-You can check out the live version of the Streamlit app at the following URL:
 
-[Streamlit App](https://heart-class.streamlit.app/)
 
 ### 📸 Screenshot of the App
 
