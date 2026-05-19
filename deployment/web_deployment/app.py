@@ -2,11 +2,11 @@ import streamlit as st
 import pickle
 import numpy as np
 import os
+
 # Path to the trained model
-#model_path = 'model.pkl'
-#model_path = 'model.pkl'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(BASE_DIR, '..', '..', 'notebooks', 'model.pkl')
+
 # Load the trained model
 with open(model_path, 'rb') as f_in:
     model = pickle.load(f_in)
